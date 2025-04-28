@@ -10,5 +10,6 @@ services:
       TYPE: FORGE
       VERSION: "1.20.1"
       FORGE_VERSION: "47.4.0"
+      MEMORY: "8G"
     volumes:
       - ./data:/data
