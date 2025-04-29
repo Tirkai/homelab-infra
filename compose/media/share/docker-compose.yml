@@ -1,0 +1,23 @@
+version: "3"
+services:
+  sftpgo:
+    image: "drakkan/sftpgo:v2-alpine"
+    user: 1026
+    restart: always
+    expose:
+      - "8092"
+      - "443"
+      - "5007"
+    env_file: ".env"
+    volumes:
+      - ./data:/srv/sftpgo
+  mysql:
+    image: mysql:latest
+    restart: always
+    env_file: ".env"
+    volumes:
+      - ./database:/var/lib/mysql
+networks:
+  default:
+    external:
+      name: nginx-proxy-manager_default
